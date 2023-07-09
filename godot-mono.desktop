@@ -1,8 +1,8 @@
 [Desktop Entry]
-Name=Godot (Mono)
-Comment=Application for making games
-Exec=/usr/bin/godot-mono %U
-Icon=godot-mono
+Name=Godot Mono Wayland
+Comment=Application for making games. Experimental wayland version.
+Exec=/usr/bin/godot-mono-wayland %U
+Icon=godot-mono-wayland
 Terminal=false
 Type=Application
 Categories=Development;
