@@ -1,2 +1,6 @@
-src
-pkg
+*
+!.SRCINFO
+!godot-mono.desktop
+!icon.png
+!.gitignore
+!PKGBUILD

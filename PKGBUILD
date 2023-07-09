@@ -5,8 +5,8 @@
 
 _pkgname=godot
 pkgname=${_pkgname}-mono-wayland
-pkgver=4.1.r1.1765f18
-pkgrel=1
+pkgver=4.1.r1.1765f180
+pkgrel=2
 pkgdesc="Godot Game Engine: An advanced, feature packed, multi-platform 2D and 3D game engine. (C#/Mono integration)"
 url="http://www.godotengine.org"
 license=('MIT')
@@ -39,8 +39,8 @@ prepare() {
         git clone https://github.com/Riteo/godot.git --branch wayland --single-branch --depth 1
     else
         cd "${srcdir}/${_pkgname}"
-        git fetch --depth 1 origin master
-        git reset --hard origin/master
+        git fetch --depth 1 origin wayland
+        git reset --hard origin/wayland
     fi
 }
 
@@ -57,7 +57,7 @@ build() {
     cd "${srcdir}"/${_pkgname}
     sed -n '/\/* Copyright/,/IN THE SOFTWARE./p' main/main.cpp | sed 's/\/\*//' | sed 's/\*\///' > LICENSE
     scons platform=linuxbsd werror=no target=editor module_mono_enabled=yes mono_glue=no $MAKEFLAGS
-    ./bin/${_bin} --generate-mono-glue modules/mono/glue
+    bin/${_bin} --headless --generate-mono-glue modules/mono/glue
     ./modules/mono/build_scripts/build_assemblies.py --godot-output-dir=./bin --godot-platform=linuxbsd
 }
 
@@ -73,7 +73,7 @@ package() {
     install -D -m755 bin/${_bin} "${pkgdir}"/opt/godot-mono-wayland/${_bin}
     cp -R bin/GodotSharp "${pkgdir}"/opt/godot-mono-wayland/GodotSharp
     mkdir -p "${pkgdir}"/usr/bin
-    ln -s /opt/godot-mono/${_bin} "${pkgdir}"/usr/bin/godot-mono-wayland
+    ln -s /opt/godot-mono-wayland/${_bin} "${pkgdir}"/usr/bin/godot-mono-wayland
 
     install -D -m644 LICENSE.txt "${pkgdir}"/usr/share/licenses/godot-mono-wayland/LICENSE
 }
