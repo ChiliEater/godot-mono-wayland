@@ -5,7 +5,7 @@
 
 _pkgname=godot
 pkgname=${_pkgname}-mono-wayland
-pkgver=4.1.1765f18
+pkgver=4.1.r1.1765f18
 pkgrel=1
 pkgdesc="Godot Game Engine: An advanced, feature packed, multi-platform 2D and 3D game engine. (C#/Mono integration)"
 url="http://www.godotengine.org"
@@ -28,7 +28,7 @@ source=(
 	icon.png
 )
 sha256sums=(
-	'9e5c418d381aaf954c058701b4b4eadbdd767f318af0898d458a74aae111aed5'
+	'6edb031a89daf05164277cac706ab797ec3a33fb84e77b8187e40a14dcf7bb02'
 	'99f9d17c4355b274ef0c08069cf6e756a98cd5c9d9d22d1b39f79538134277e1'
 )
 
