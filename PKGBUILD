@@ -5,14 +5,14 @@
 
 _pkgname=godot
 pkgname=${_pkgname}-mono-wayland
-pkgver=4.1.r1.1765f180
-pkgrel=2
+pkgver=4.2.r1.4a26acf
+pkgrel=1
 pkgdesc="Godot Game Engine: An advanced, feature packed, multi-platform 2D and 3D game engine. (C#/Mono integration)"
 url="http://www.godotengine.org"
 license=('MIT')
 arch=('i686' 'x86_64')
 makedepends=('git' 'scons' 'pulseaudio' 'pkgconf' 'xorg-xrandr' 'yasm')                                                                                                          
-depends=('glu' 'libxcursor' 'libxinerama' 'alsa-lib' 'freetype2' 'mesa' 'mono' 'dotnet-sdk-6.0' 'msbuild')
+depends=('glu' 'libxcursor' 'libxinerama' 'alsa-lib' 'freetype2' 'mesa' 'mono' 'dotnet-sdk' 'msbuild')
 optdepends=()
 provides=("godot-mono-wayland")
 _arch=''
@@ -36,11 +36,11 @@ prepare() {
     if [ ! -d "${srcdir}/${_pkgname}" ]
     then
         cd ${srcdir}
-        git clone https://github.com/Riteo/godot.git --branch wayland --single-branch --depth 1
+        git clone https://github.com/Riteo/godot.git --branch wayland-squashed --single-branch --depth 1
     else
         cd "${srcdir}/${_pkgname}"
-        git fetch --depth 1 origin wayland
-        git reset --hard origin/wayland
+        git fetch --depth 1 origin wayland-squashed
+        git reset --hard origin/wayland-squashed
     fi
 }
 
