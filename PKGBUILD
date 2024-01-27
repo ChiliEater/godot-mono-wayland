@@ -5,7 +5,7 @@
 
 _pkgname=godot
 pkgname=${_pkgname}-mono-wayland
-pkgver=4.3.r1.12b7296
+pkgver=4.3.r1.039f82d
 pkgrel=1
 pkgdesc="Godot Game Engine: An advanced, feature packed, multi-platform 2D and 3D game engine. (C#/Mono integration)"
 url="http://www.godotengine.org"
